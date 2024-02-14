@@ -19,14 +19,6 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true }
 });
 
-// Define Post schema
-const postSchema = new mongoose.Schema({
-    author: String,
-    title: String,
-    body: String,
-    date: Date
-});
-
 // Hash password before saving user to database
 userSchema.pre('save', function(next) {
     const user = this;
