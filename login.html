@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f5e8; /* Pastel green */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: opacity 1s; /* Added transition property */
+        }
+        .login-container.hide {
+            opacity: 0;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #4a4a4a; /* Dark gray */
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .login-form input[type="submit"] {
+            background-color: #4caf50; /* Green */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-form input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome Back!</h2>
+        <form class="login-form" action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(event) {
+            // Prevent the form from submitting immediately
+            event.preventDefault();
+
+            // Fade out the login form by adding the 'hide' class
+            document.querySelector('.login-container').classList.add('hide');
+
+            // Redirect to the next page after 1 second
+            setTimeout(function() {
+                window.location.href = '/nextpage.html'; // Change this to the actual URL of the next page
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
